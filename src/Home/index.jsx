@@ -9,6 +9,7 @@ class Home extends Component {
         <MessengerCustomerChat
           pageId="107851557422909"
           appId="1173105399778643"
+          htmlRef={window.location.pathname}
         />
       </div>
     );
