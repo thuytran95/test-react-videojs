@@ -21,6 +21,7 @@ class VideoJS extends Component {
       },
       function onPlayerReady() {
         console.log(this);
+        this.play();
         // window.VIDEOJS_NO_DYNAMIC_STYLE === true;
       }
     );
