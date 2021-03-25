@@ -42,7 +42,7 @@
     <script src="https://unpkg.com/video.js@6.4.0/dist/video.js"></script>
     <script src="https://unpkg.com/videojs-flash@2.0.1/dist/videojs-flash.js"></script>
     <script src="https://unpkg.com/videojs-contrib-hls@5.12.2/dist/videojs-contrib-hls.js"></script>
-    <script src="./videoScript.js"></script>
+    <!-- <script src="./videoScript.js"></script> -->
     <script>
       window.fbAsyncInit = function () {
         FB.init({
@@ -58,8 +58,7 @@
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src =
-          "https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1";
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "facebook-jssdk");
     </script>
@@ -67,7 +66,7 @@
       async
       defer
       crossorigin="anonymous"
-      src="https://connect.facebook.net/vi_VN/sdk.js"
+      src="https://connect.facebook.net/en_US/sdk.js"
     ></script>
   </body>
 </html>
