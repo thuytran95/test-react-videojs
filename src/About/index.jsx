@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
+// import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 
 class About extends Component {
   // componentDidMount() {
@@ -44,7 +44,7 @@ class About extends Component {
           appId="1173105399778643"
           htmlRef={window.location.pathname}
         /> */}
-        ;
+        <div class="fb-customerchat" page_id="107851557422909"></div>
       </div>
     );
   }
