@@ -43,5 +43,30 @@
     <script src="https://unpkg.com/videojs-flash@2.0.1/dist/videojs-flash.js"></script>
     <script src="https://unpkg.com/videojs-contrib-hls@5.12.2/dist/videojs-contrib-hls.js"></script>
     <script src="./videoScript.js"></script>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: "1173105399778643",
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: "v10.0",
+        });
+      };
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
   </body>
 </html>
