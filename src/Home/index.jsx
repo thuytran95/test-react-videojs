@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MessengerCustomerChat from "react-messenger-customer-chat";
+// import MessengerCustomerChat from "react-messenger-customer-chat";
 
 class Home extends Component {
   render() {
