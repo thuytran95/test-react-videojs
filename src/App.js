@@ -7,7 +7,6 @@ import VideoJS from "./videojs";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 
 function App() {
   return (
@@ -40,10 +39,6 @@ function App() {
         src="https://file.mentor.vn/files/lessons/output/file-1614840748161/playlist.m3u8"
         controls={true}
       /> */}
-      <MessengerCustomerChat
-        pageId="107851557422909"
-        appId="1173105399778643"
-      />
     </div>
   );
 }
