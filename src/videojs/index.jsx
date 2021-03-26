@@ -26,9 +26,8 @@ class VideoJS extends Component {
         // window.VIDEOJS_NO_DYNAMIC_STYLE === true;
 
         (function (window, videojs) {
-          var player = (window.player = videojs("myVideo"));
-          console.log(player);
-
+          // var player = (window.player = videojs("myVideo"));
+          // console.log(player);
           // // hook up the video switcher
           // var loadUrl = document.getElementById("load-url");
           // var url = document.getElementById("url");
@@ -45,7 +44,6 @@ class VideoJS extends Component {
           // var url = document.getElementById("url");
           // loadUrl.addEventListener("submit", function (event) {
           //   event.preventDefault();
-
           //   return false;
           // });
           // player.src({
@@ -75,13 +73,13 @@ class VideoJS extends Component {
     return (
       <div className="videoCourse">
         <div data-vjs-player>
-          <video-js
+          <video
             ref={(node) => (this.videoNode = node)}
             className="video-js vjs-default-skin"
-            id="myVideo"
+            id="videojs-http-streaming-player"
           >
             <source src={this.props.src} type="application/x-mpegURL"></source>
-          </video-js>
+          </video>
         </div>
       </div>
     );

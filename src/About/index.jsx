@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MessengerChat from "../Messenger";
 
 class About extends Component {
   // componentDidMount() {
@@ -38,7 +39,8 @@ class About extends Component {
     return (
       <div>
         About page
-        <div className="fb-customerchat" page_id="107851557422909"></div>
+        {/* <div className="fb-customerchat" page_id="107851557422909"></div> */}
+        <MessengerChat pageId="107851557422909" ref="fb-msgr" />
       </div>
     );
   }
