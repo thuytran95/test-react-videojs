@@ -27,6 +27,7 @@ class VideoJS extends Component {
 
         (function (window, videojs) {
           var player = (window.player = videojs("myVideo"));
+          console.log(player);
 
           // // hook up the video switcher
           // var loadUrl = document.getElementById("load-url");
@@ -74,13 +75,13 @@ class VideoJS extends Component {
     return (
       <div className="videoCourse">
         <div data-vjs-player>
-          <video
+          <video-js
             ref={(node) => (this.videoNode = node)}
             className="video-js vjs-default-skin"
             id="myVideo"
           >
             <source src={this.props.src} type="application/x-mpegURL"></source>
-          </video>
+          </video-js>
         </div>
       </div>
     );
