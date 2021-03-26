@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import VideoJS from "../videojs";
 
 class Home extends Component {
   render() {
@@ -6,7 +7,11 @@ class Home extends Component {
     return (
       <div>
         HOme page
-        <div class="fb-customerchat" page_id="107851557422909"></div>
+        <VideoJS
+          src="https://file.mentor.vn/files/lessons/output/file-1614840748161/playlist.m3u8"
+          controls={true}
+        />
+        <div className="fb-customerchat" page_id="107851557422909"></div>
       </div>
     );
   }

@@ -6,26 +6,21 @@ class VideoJS extends Component {
   componentDidMount() {
     // instantiate Video.js
     let overrideNative = false;
-    this.player = videojs(
-      this.videoNode,
-      {
-        ...this.props,
-        html5: {
-          hls: {
-            overrideNative: overrideNative,
-          },
-          nativeVideoTracks: !overrideNative,
-          nativeAudioTracks: !overrideNative,
-          nativeTextTracks: !overrideNative,
-        },
-      },
-      function onPlayerReady() {
-        console.log(this);
-        this.play();
-        // window.VIDEOJS_NO_DYNAMIC_STYLE === true;
-      }
-    );
+    this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
+      console.log(this);
+      this.play();
+      // window.VIDEOJS_NO_DYNAMIC_STYLE === true;
+    });
   }
+
+  // {  html5: {
+  //     hls: {
+  //       overrideNative: false,
+  //     },
+  //     nativeVideoTracks: true,
+  //     nativeAudioTracks: true,
+  //     nativeTextTracks: true,
+  //   }}
 
   shouldComponentUpdate(prevProps) {
     if (this.props.src !== prevProps.src) {
@@ -49,8 +44,18 @@ class VideoJS extends Component {
             ref={(node) => (this.videoNode = node)}
             className="video-js vjs-default-skin"
             id="myVideo"
+            data-setup='{
+              "html5":{
+                "hls":{
+                  "overrideNative":false
+                },
+                "nativeVideoTracks":true,
+                "nativeAudioTracks":true,
+                "nativeTextTracks":true
+              }
+            }'
           >
-            <source src={this.props.src}></source>
+            <source src={this.props.src} type="application/x-mpegURL"></source>
           </video>
         </div>
       </div>

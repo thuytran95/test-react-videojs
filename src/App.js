@@ -1,9 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import videojs from "video.js";
-import VREPlayer from "videojs-react-enhanced";
 import "video.js/dist/video-js.css";
-import VideoJS from "./videojs";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";

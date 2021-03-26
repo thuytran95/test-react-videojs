@@ -38,7 +38,7 @@ class About extends Component {
     return (
       <div>
         About page
-        <div class="fb-customerchat" page_id="107851557422909"></div>
+        <div className="fb-customerchat" page_id="107851557422909"></div>
       </div>
     );
   }
