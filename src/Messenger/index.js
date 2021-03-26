@@ -220,24 +220,38 @@ class MessengerChat extends Component {
 
   render() {
     const { fbLoaded, shouldShowDialog } = this.state;
-    console.log(this.props);
-    console.log(this.props.showDialog);
+    // console.log(this.props);
+    // console.log(this.props.showDialog);
 
     if (fbLoaded && shouldShowDialog !== this.props.shouldShowDialog) {
-      document.addEventListener(
-        "DOMNodeInserted",
-        (event) => {
-          const element = event.target;
-          if (
-            element.className &&
-            typeof element.className === "string" &&
-            element.className.includes("fb_dialog")
-          ) {
-            this.controlPlugin();
-          }
-        },
-        false
-      );
+      // document.addEventListener(
+      //   "DOMNodeInserted",
+      //   (event) => {
+      //     const element = event.target;
+      //     if (
+      //       element.className &&
+      //       typeof element.className === "string" &&
+      //       element.className.includes("fb_dialog")
+      //     ) {
+      //       this.controlPlugin();
+      //     }
+      //   },
+      //   false
+      // );
+      var observer = new MutationObserver(function (mutations) {
+        console.log(mutations);
+        mutations.forEach(function (mutation) {
+          for (var i = 0; i < mutation.addedNodes.length; i++)
+            if (
+              mutation.addedNodes[i].className &&
+              typeof mutation.addedNodes[i].className === "string" &&
+              mutation.addedNodes[i].className.includes("fb_dialog")
+            ) {
+              this.controlPlugin();
+            }
+        });
+      });
+      observer.observe(document, { childList: true });
       this.subscribeEvents();
     }
     return <div key={Date()} dangerouslySetInnerHTML={this.createMarkup()} />;
