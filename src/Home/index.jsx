@@ -13,7 +13,7 @@ class Home extends Component {
           controls={true}
         />
         {/* <div className="fb-customerchat" page_id="107851557422909"></div> */}
-        <MessengerChat pageId="107851557422909"  ref="fb-msgr"/>
+        <MessengerChat pageId="107851557422909" htmlRef="fb-msgr" />
       </div>
     );
   }

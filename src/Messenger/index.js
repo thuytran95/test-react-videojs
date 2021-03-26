@@ -221,6 +221,7 @@ class MessengerChat extends Component {
   render() {
     const { fbLoaded, shouldShowDialog } = this.state;
     console.log(this.props);
+    console.log(this.props.showDialog);
 
     if (fbLoaded && shouldShowDialog !== this.props.shouldShowDialog) {
       document.addEventListener(
