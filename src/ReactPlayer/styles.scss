@@ -28,6 +28,9 @@
             }
         }
     }
+    video::-webkit-media-controls {
+        display:none !important;
+    }
     svg{
         display: inline-block !important
     }
