@@ -77,6 +77,7 @@ class VideoPlayer extends Component {
       >
         <ReactPlayer
           playsinline
+          muted 
           autoPlay={true}
           ref={this.ref}
           url={url}
