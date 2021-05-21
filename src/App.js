@@ -1,31 +1,33 @@
-import logo from "./logo.svg";
-import "./App.css";
-import "video.js/dist/video-js.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
+import logo from './logo.svg'
+import './App.css'
+import 'video.js/dist/video-js.css'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import Home from './Home'
+import About from './About'
+import { useEffect, useState } from 'react'
 
-function App() {
+function App () {
+  
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <div>
-          <ul style={{ display: "flex", justifyContent: "center" }}>
-            <li style={{ margin: "10px" }}>
-              <Link to="/">Home</Link>
+          <ul style={{ display: 'flex', justifyContent: 'center' }}>
+            <li style={{ margin: '10px' }}>
+              <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to='/about'>About</Link>
             </li>
           </ul>
 
           <hr />
 
           <Switch>
-            <Route exact path="/">
+            <Route exact path='/'>
               <Home />
             </Route>
-            <Route path="/about">
+            <Route path='/about'>
               <About />
             </Route>
           </Switch>
@@ -37,7 +39,7 @@ function App() {
         controls={true}
       /> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

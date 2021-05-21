@@ -13,6 +13,9 @@
         color: #fff;
         width: 100%;
         z-index: 1000000000;
+        &.controls-custom{
+             background-color: rgba(43, 51, 63, 1);
+        }
         span {
             padding: 10px 20px;
             &.icon:hover {
@@ -27,6 +30,7 @@
                 }
             }
         }
+        
     }
     video::-webkit-media-controls {
         display:none !important;

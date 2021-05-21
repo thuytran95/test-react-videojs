@@ -1,12 +1,12 @@
-import React, {Component} from "react"
-import PropTypes from "prop-types"
-import {findDOMNode} from "react-dom"
-import {Icon} from "antd"
-import classnames from "classnames"
-import ReactPlayer from "react-player"
-import screenfull from "screenfull"
-import Duration from "./Duration"
-import styles from "./styles.scss"
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { findDOMNode } from 'react-dom';
+import { Icon } from 'antd';
+import classnames from 'classnames';
+import ReactPlayer from 'react-player';
+import screenfull from 'screenfull';
+import Duration from './Duration';
+import styles from './styles.scss';
 class VideoPlayer extends Component {
   state = {
     playing: true,
@@ -16,68 +16,75 @@ class VideoPlayer extends Component {
     played: 0,
     loaded: 0,
     seeking: false
-  }
+  };
   ref = player => {
-    this.player = player
-  }
+    this.player = player;
+  };
   parentRef = parent => {
-    this.parent = parent
-  }
+    this.parent = parent;
+  };
   playVideo = () => {
-    this.setState({playing: true})
-  }
+    this.setState({ playing: true });
+  };
 
   pauseVideo = () => {
-    this.setState({playing: false})
-  }
+    this.setState({ playing: false });
+  };
 
   togglePlay = () => {
-    this.setState(prevState => ({playing: !prevState.playing}))
-  }
+    this.setState(prevState => ({ playing: !prevState.playing }));
+  };
 
   toggleFullScreen = () => {
     this.setState(
-      prevState => ({fullScreen: !prevState.fullScreen}),
+      prevState => ({ fullScreen: !prevState.fullScreen }),
       () => {
         if (this.state.fullScreen) {
-          screenfull.request(findDOMNode(this.parent))
+          screenfull.request(findDOMNode(this.parent));
         } else {
-          screenfull.exit(findDOMNode(this.parent))
+          screenfull.exit(findDOMNode(this.parent));
         }
       }
-    )
-  }
+    );
+  };
   onProgress = state => {
     if (!this.state.seeking) {
-      this.setState(state)
+      this.setState(state);
     }
-  }
+  };
   onDuration = duration => {
-    this.setState({duration})
-  }
+    this.setState({ duration });
+  };
   onSeekMouseDown = e => {
-    this.setState({seeking: true})
-  }
+    this.setState({ seeking: true });
+  };
   onSeekChange = e => {
-    this.setState({played: parseFloat(e.target.value)})
-  }
+    this.setState({ played: parseFloat(e.target.value) });
+  };
   onSeekMouseUp = e => {
-    this.setState({seeking: false})
-    this.player.seekTo(parseFloat(e.target.value))
-  }
+    this.setState({ seeking: false });
+    this.player.seekTo(parseFloat(e.target.value));
+  };
+
+  controlStyle = {
+    backgroundColor: 'black'
+  };
   render() {
     // const { url, onClickNext, onClickPrev, onFinishWatching } = this.props;
-    const {url} = this.props
-    const {playing, fullScreen, played, duration} = this.state
+    const { url, isIOSDevice } = this.props;
+    const { playing, fullScreen, played, duration } = this.state;
     //console.log(played);
+    console.log(duration);
+    console.log(this.props.isIOSDevice);
+
     return (
       <div
         ref={this.parentRef}
-        className={`video-player ${fullScreen ? "full-screen" : ""}`}
+        className={`video-player ${fullScreen ? 'full-screen' : ''}`}
       >
         <ReactPlayer
           playsinline
-          muted 
+          muted
           autoPlay={true}
           ref={this.ref}
           url={url}
@@ -93,17 +100,21 @@ class VideoPlayer extends Component {
           // loop={false}
         />
         <span
-          className={`iconBig ${playing ? "hidden" : ""}`}
+          className={`iconBig ${playing ? 'hidden' : ''}`}
           onClick={this.togglePlay}
         >
-          <Icon type={playing ? "pause" : "caret-right"} />
+          <Icon type={playing ? 'pause' : 'caret-right'} />
         </span>
-        <div className="controls">
+        <div
+          className={`${
+            isIOSDevice ? 'controls controls-custom' : 'controls'
+          } `}
+        >
           <span className="icon">
             <Icon type="step-backward" />
           </span>
           <span className="icon" onClick={this.togglePlay}>
-            <Icon type={playing ? "pause" : "caret-right"} />
+            <Icon type={playing ? 'pause' : 'caret-right'} />
           </span>
           <span className="icon">
             <Icon type="step-forward" />
@@ -111,7 +122,7 @@ class VideoPlayer extends Component {
           {/* <span>
                         <Icon type="sound" />
                     </span> */}
-          <span style={{flexGrow: 1}}>
+          <span style={{ flexGrow: 1 }}>
             <div className="processWrapper">
               <div className="inner">
                 <input
@@ -125,22 +136,22 @@ class VideoPlayer extends Component {
                   onMouseUp={this.onSeekMouseUp}
                 />
                 <div className="loaded">
-                  <span style={{width: `${played * 100}%`}} />
+                  <span style={{ width: `${played * 100}%` }} />
                 </div>
               </div>
             </div>
           </span>
-          <span style={{minWidth: "90px"}}>
-            <Duration seconds={duration * played} /> /{" "}
+          <span style={{ minWidth: '90px' }}>
+            <Duration seconds={duration * played} /> /{' '}
             <Duration seconds={duration} />
           </span>
           <span className="icon" onClick={this.toggleFullScreen}>
             {/* <Icon type={fullScreen ? 'shrink' : 'arrows-alt'} /> */}
-            <Icon type={fullScreen ? "shrink" : "arrows-alt"} />
+            <Icon type={fullScreen ? 'shrink' : 'arrows-alt'} />
           </span>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -152,10 +163,10 @@ VideoPlayer.propTypes = {
   onFinishWatching: PropTypes.func,
   onEnded: PropTypes.func,
   url: PropTypes.string
-}
+};
 
 VideoPlayer.defaultProps = {
   style: {}
-}
+};
 
-export default VideoPlayer
+export default VideoPlayer;
